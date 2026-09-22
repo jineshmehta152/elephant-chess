@@ -89,19 +89,17 @@ export const WhyChooseUsSection: React.FC = () => {
 
           {/* CENTER COLUMN: ELEPHANT MASCOT EMBLEM */}
           <div className="lg:col-span-4 flex flex-col items-center justify-center py-6">
-            <div className="relative group">
+            <div className="relative group max-w-full flex items-center justify-center">
               {/* Outer Dashed Ring */}
-              <div className="w-68 h-68 md:w-76 md:h-76 rounded-full border-4 border-dashed border-[#29A3DD]/50 animate-[spin_60s_linear_infinite] absolute -inset-3" />
+              <div className="w-56 h-56 sm:w-68 sm:h-68 md:w-76 md:h-76 rounded-full border-4 border-dashed border-[#29A3DD]/50 animate-[spin_60s_linear_infinite] absolute -inset-2 sm:-inset-3 pointer-events-none" />
 
               {/* Central Mascot Circle with Thick Border & Doodle Image */}
-              <div className="w-64 h-64 md:w-72 md:h-72 rounded-full bg-amber-400 border-4 border-slate-900 shadow-[8px_8px_0px_0px_rgba(10,17,40,1)] flex items-center justify-center relative overflow-hidden group-hover:scale-105 transition-transform duration-300">
+              <div className="w-52 h-52 sm:w-64 sm:h-64 md:w-72 md:h-72 rounded-full bg-amber-400 border-4 border-slate-900 shadow-[6px_6px_0px_0px_rgba(10,17,40,1)] sm:shadow-[8px_8px_0px_0px_rgba(10,17,40,1)] flex items-center justify-center relative overflow-hidden group-hover:scale-105 transition-transform duration-300">
                 <img
                   src="/elephant-doodle.jpg"
                   alt="Elephant Chess Academy Mascot Doodle"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
-
-               
               </div>
             </div>
           </div>

@@ -59,7 +59,7 @@ const Header: React.FC = () => {
   return (
     <>
       {/* Top Spacer */}
-      <div className="h-20 lg:h-22 invisible" />
+      <div className="h-16 md:h-20 invisible" />
 
       {/* Main Header Container */}
       <header
@@ -68,8 +68,8 @@ const Header: React.FC = () => {
       >
         <div
           className={`transition-all duration-300 flex items-center justify-between w-full max-w-full ${scrolled
-            ? "bg-[#0A1128]/95 backdrop-blur-xl border-2 border-[#29A3DD]/40 shadow-[0_12px_35px_rgba(10,17,40,0.3)] rounded-full px-4 md:px-8 py-2.5"
-            : "px-4 md:px-8"
+            ? "bg-[#0A1128]/95 backdrop-blur-xl border-2 border-[#29A3DD]/40 shadow-[0_12px_35px_rgba(10,17,40,0.3)] rounded-full px-3.5 sm:px-4 md:px-8 py-2 md:py-2.5"
+            : "px-3.5 sm:px-4 md:px-8"
             }`}
         >
           {/* Logo Section */}
@@ -112,10 +112,10 @@ const Header: React.FC = () => {
           </nav>
 
           {/* Right Action Buttons */}
-          <div className="hidden md:flex items-center gap-2.5">
+          <div className="hidden md:flex items-center gap-2 sm:gap-2.5">
             <Link
               href="/student"
-              className={`text-xs font-black px-4 py-2 rounded-full transition-all flex items-center gap-1.5 border-2 ${scrolled
+              className={`text-xs font-black px-3.5 sm:px-4 py-2 rounded-full transition-all flex items-center gap-1.5 border-2 ${scrolled
                 ? "bg-white/10 text-white border-white/20 hover:bg-[#29A3DD] hover:border-[#29A3DD]"
                 : "bg-sky-50 text-[#0A1128] border-sky-200 hover:bg-[#29A3DD] hover:text-white hover:border-[#29A3DD]"
                 } shadow-sm hover:scale-105 active:scale-95`}
@@ -125,23 +125,23 @@ const Header: React.FC = () => {
 
             <button
               onClick={openModal}
-              className="text-xs font-black px-5 py-2.5 rounded-full bg-gradient-to-r from-[#FDB813] via-amber-400 to-yellow-500 hover:from-amber-400 hover:to-[#FDB813] text-slate-950 shadow-[0_6px_20px_rgba(253,184,19,0.5)] hover:shadow-2xl hover:scale-105 active:scale-95 transition-all flex items-center gap-1.5 shrink-0 border border-yellow-200 uppercase tracking-wider cursor-pointer"
+              className="text-xs font-black px-4 sm:px-5 py-2.5 rounded-full bg-gradient-to-r from-[#FDB813] via-amber-400 to-yellow-500 hover:from-amber-400 hover:to-[#FDB813] text-slate-950 shadow-[0_6px_20px_rgba(253,184,19,0.5)] hover:shadow-2xl hover:scale-105 active:scale-95 transition-all flex items-center gap-1.5 shrink-0 border border-yellow-200 uppercase tracking-wider cursor-pointer"
             >
               <span>⭐</span> Free Trial Class
             </button>
           </div>
 
           {/* Mobile Menu Toggle */}
-          <div className="xl:hidden flex items-center gap-2">
+          <div className="xl:hidden flex items-center gap-1.5 sm:gap-2">
             <button
               onClick={openModal}
-              className="text-[11px] font-black px-3.5 py-1.5 rounded-full bg-gradient-to-r from-[#FDB813] to-amber-400 text-slate-950 shrink-0 shadow-md border border-amber-300 cursor-pointer"
+              className="text-[10px] sm:text-[11px] font-black px-3 sm:px-3.5 py-1.5 rounded-full bg-gradient-to-r from-[#FDB813] to-amber-400 text-slate-950 shrink-0 shadow-md border border-amber-300 cursor-pointer"
             >
               ⭐ Free Trial
             </button>
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className={`p-2 rounded-full transition-colors ${scrolled ? "text-white hover:bg-white/20" : "text-slate-800 bg-sky-50 hover:bg-sky-100"
+              className={`p-1.5 sm:p-2 rounded-full transition-colors ${scrolled ? "text-white hover:bg-white/20" : "text-slate-800 bg-sky-50 hover:bg-sky-100"
                 }`}
               aria-label="Toggle menu"
             >
@@ -150,51 +150,57 @@ const Header: React.FC = () => {
           </div>
         </div>
 
-        {/* Mobile Navigation Drawer */}
+        {/* Mobile Backdrop & Drawer */}
         {isMobileMenuOpen && (
-          <div className="xl:hidden fixed inset-x-4 top-20 z-[110] bg-[#0A1128] border-2 border-[#29A3DD]/50 rounded-3xl p-5 space-y-3 shadow-2xl max-h-[80vh] overflow-y-auto">
-            <div className="flex flex-col space-y-1.5">
-              {navItems.map((item) => {
-                const isActive = pathname === item.href;
-                return (
-                  <Link
-                    key={item.name}
-                    href={item.href}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className={`text-sm font-black py-2.5 px-4 rounded-2xl transition-all flex items-center gap-2.5 ${isActive
-                      ? "bg-[#29A3DD] text-white shadow-md"
-                      : "text-slate-200 hover:bg-white/10 hover:text-[#FDB813]"
-                      }`}
-                  >
-                    <span>{item.icon}</span>
-                    <span>{item.name}</span>
-                  </Link>
-                );
-              })}
+          <>
+            <div 
+              className="xl:hidden fixed inset-0 bg-slate-950/60 backdrop-blur-xs z-[105]"
+              onClick={() => setIsMobileMenuOpen(false)}
+            />
+            <div className="xl:hidden fixed inset-x-3 sm:inset-x-4 top-16 sm:top-20 z-[110] bg-[#0A1128] border-2 border-[#29A3DD]/50 rounded-3xl p-4 sm:p-5 space-y-3 shadow-2xl max-h-[82vh] overflow-y-auto">
+              <div className="flex flex-col space-y-1">
+                {navItems.map((item) => {
+                  const isActive = pathname === item.href;
+                  return (
+                    <Link
+                      key={item.name}
+                      href={item.href}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className={`text-sm font-black py-2.5 px-4 rounded-2xl transition-all flex items-center gap-2.5 ${isActive
+                        ? "bg-[#29A3DD] text-white shadow-md"
+                        : "text-slate-200 hover:bg-white/10 hover:text-[#FDB813]"
+                        }`}
+                    >
+                      <span>{item.icon}</span>
+                      <span>{item.name}</span>
+                    </Link>
+                  );
+                })}
 
-              <div className="h-px bg-white/15 my-2" />
+                <div className="h-px bg-white/15 my-2" />
 
-              <button
-                onClick={() => {
-                  setIsMobileMenuOpen(false);
-                  openModal();
-                }}
-                className="text-sm font-black text-slate-950 bg-gradient-to-r from-[#FDB813] via-amber-400 to-yellow-500 py-3 px-4 rounded-2xl text-center flex items-center justify-center gap-2 shadow-lg uppercase tracking-wider border border-amber-200 cursor-pointer"
-              >
-                ⭐ Book Free Trial Class
-              </button>
-
-              <div className="mt-2">
-                <Link
-                  href="/student"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-xs font-black text-white bg-white/10 border border-white/20 py-2.5 px-3 rounded-xl text-center hover:bg-[#29A3DD] flex items-center justify-center gap-1.5 w-full"
+                <button
+                  onClick={() => {
+                    setIsMobileMenuOpen(false);
+                    openModal();
+                  }}
+                  className="text-sm font-black text-slate-950 bg-gradient-to-r from-[#FDB813] via-amber-400 to-yellow-500 py-3 px-4 rounded-2xl text-center flex items-center justify-center gap-2 shadow-lg uppercase tracking-wider border border-amber-200 cursor-pointer"
                 >
-                  🐘 Classroom
-                </Link>
+                  ⭐ Book Free Trial Class
+                </button>
+
+                <div className="mt-2">
+                  <Link
+                    href="/student"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="text-xs font-black text-white bg-white/10 border border-white/20 py-2.5 px-3 rounded-xl text-center hover:bg-[#29A3DD] flex items-center justify-center gap-1.5 w-full"
+                  >
+                    🐘 Student Classroom
+                  </Link>
+                </div>
               </div>
             </div>
-          </div>
+          </>
         )}
       </header>
     </>

@@ -48,7 +48,7 @@ const SubpageBanner: React.FC<SubpageBannerProps> = ({
 
   return (
     <div
-      className="relative w-full bg-cover bg-center pt-32 pb-44 md:pt-40 md:pb-56 overflow-hidden select-none"
+      className="relative w-full bg-cover bg-center pt-24 pb-32 sm:pt-32 sm:pb-40 md:pt-40 md:pb-52 overflow-hidden select-none"
       style={{ backgroundImage: `url(${bgImage})` }}
     >
       {/* Deep Navy High-Tech Overlay & Matrix Pattern */}
@@ -112,10 +112,10 @@ const SubpageBanner: React.FC<SubpageBannerProps> = ({
       )}
 
       {/* ── Main Banner Content ── */}
-      <div className="max-w-5xl mx-auto px-6 relative z-10 flex flex-col items-center text-center">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-10 flex flex-col items-center text-center">
         
         {/* Breadcrumb Navigation Capsule */}
-        <nav className="inline-flex items-center gap-2.5 px-6 py-2 rounded-full bg-white/10 backdrop-blur-md border-2 border-white/20 text-xs font-black uppercase tracking-widest text-white shadow-[3px_3px_0px_0px_rgba(0,0,0,0.5)] transition-all hover:border-white/40 mb-6">
+        <nav className="inline-flex items-center gap-2 px-4 sm:px-6 py-1.5 sm:py-2 rounded-full bg-white/10 backdrop-blur-md border-2 border-white/20 text-[11px] sm:text-xs font-black uppercase tracking-widest text-white shadow-[3px_3px_0px_0px_rgba(0,0,0,0.5)] transition-all hover:border-white/40 mb-4 sm:mb-6">
           <Link href="/" className="hover:text-[#FDB813] transition-colors flex items-center gap-1.5">
             <Home className="w-3.5 h-3.5 stroke-[2.5]" />
             <span>Home</span>
@@ -125,7 +125,7 @@ const SubpageBanner: React.FC<SubpageBannerProps> = ({
         </nav>
 
         {/* Title */}
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-[1000] text-white tracking-tight leading-none mb-6 uppercase">
+        <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-[1000] text-white tracking-tight leading-tight mb-4 sm:mb-6 uppercase">
           {title}{" "}
           <span className="bg-gradient-to-r from-[#29A3DD] via-sky-300 to-[#FDB813] bg-clip-text text-transparent italic font-serif">
             {highlight}
@@ -133,7 +133,7 @@ const SubpageBanner: React.FC<SubpageBannerProps> = ({
         </h1>
         
         {/* Subtitle */}
-        <p className="text-xs sm:text-sm md:text-base font-bold text-sky-100 tracking-[0.15em] leading-relaxed max-w-2xl uppercase">
+        <p className="text-xs sm:text-sm md:text-base font-bold text-sky-100 tracking-wide sm:tracking-[0.15em] leading-relaxed max-w-2xl uppercase">
           {subtitle}
         </p>
 

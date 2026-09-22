@@ -58,7 +58,7 @@ export default function AboutPage() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
           {/* Left Column: Neo-Brutalist Layered Frames */}
-          <div className="lg:col-span-6 relative flex items-center justify-center min-h-[460px] md:min-h-[520px]">
+          <div className="lg:col-span-6 relative flex items-center justify-center min-h-[340px] sm:min-h-[440px] md:min-h-[520px]">
             {/* Background Geometric Accent */}
             <div className="absolute inset-0 bg-[#29A3DD]/10 rounded-[3rem] border-[3px] border-black -rotate-2 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]" />
 

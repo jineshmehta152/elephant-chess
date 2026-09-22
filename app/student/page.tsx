@@ -951,33 +951,33 @@ export default function StudentPortalPage() {
   return (
     <div className="min-h-screen bg-[#F8FAFC] text-slate-900 flex flex-col font-sans">
       {/* Top Student Header */}
-      <header className="bg-white border-b border-slate-200 px-6 py-4 flex flex-wrap items-center justify-between gap-4 sticky top-0 z-30 shadow-xs">
-        <div className="flex items-center gap-4">
+      <header className="bg-white border-b border-slate-200 px-4 sm:px-6 py-3 sm:py-4 flex flex-wrap items-center justify-between gap-3 sticky top-0 z-30 shadow-xs">
+        <div className="flex items-center gap-2 sm:gap-4">
           <ModernKnightLogo size="sm" variant="dark" />
-          <span className="px-3 py-1 bg-pink-50 text-pink-700 font-extrabold text-xs rounded-lg border border-pink-200 flex items-center gap-1.5">
-            <Sparkles className="w-3.5 h-3.5 text-amber-500" /> Student Tactical Portal
+          <span className="px-2.5 sm:px-3 py-1 bg-pink-50 text-pink-700 font-extrabold text-[11px] sm:text-xs rounded-lg border border-pink-200 flex items-center gap-1.5">
+            <Sparkles className="w-3.5 h-3.5 text-amber-500" /> <span className="hidden xs:inline">Student</span> Tactical Portal
           </span>
         </div>
 
-        <div className="flex items-center gap-4">
-          <div className="flex items-center gap-3 text-xs font-bold bg-slate-50 px-4 py-2 rounded-xl border border-slate-200">
-            <span className="text-[#E11D48] flex items-center gap-1 font-black">🏆 {studentProfile.fideRating} Points</span>
+        <div className="flex flex-wrap items-center gap-2 sm:gap-4">
+          <div className="flex items-center gap-2 sm:gap-3 text-xs font-bold bg-slate-50 px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl border border-slate-200">
+            <span className="text-[#E11D48] flex items-center gap-1 font-black">🏆 {studentProfile.fideRating} <span className="hidden sm:inline">Points</span></span>
             <span className="text-slate-300">|</span>
             <span className="text-amber-700 flex items-center gap-1.5 font-bold">
               {studentLeague.image ? (
-                <img src={studentLeague.image} className="w-5 h-5 object-contain" alt={studentLeague.name} />
+                <img src={studentLeague.image} className="w-4 h-4 sm:w-5 sm:h-5 object-contain" alt={studentLeague.name} />
               ) : (
                 <span>{studentLeague.icon}</span>
               )}
-              {studentLeague.name}
+              <span className="hidden sm:inline">{studentLeague.name}</span>
             </span>
           </div>
 
           <Link
             href="/"
-            className="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-xs font-bold rounded-xl border border-slate-200 text-slate-700 transition-colors"
+            className="px-3 sm:px-4 py-1.5 sm:py-2 bg-slate-100 hover:bg-slate-200 text-xs font-bold rounded-xl border border-slate-200 text-slate-700 transition-colors"
           >
-            Website Home
+            Home
           </Link>
 
           <button
@@ -985,7 +985,7 @@ export default function StudentPortalPage() {
               localStorage.removeItem("currentStudent");
               window.location.href = "/login?role=student";
             }}
-            className="px-4 py-2 bg-rose-50 hover:bg-rose-100 text-xs font-bold rounded-xl border border-rose-200 text-rose-700 transition-colors cursor-pointer"
+            className="px-3 sm:px-4 py-1.5 sm:py-2 bg-rose-50 hover:bg-rose-100 text-xs font-bold rounded-xl border border-rose-200 text-rose-700 transition-colors cursor-pointer"
           >
             Logout
           </button>
@@ -993,8 +993,8 @@ export default function StudentPortalPage() {
       </header>
 
       {/* Student Nav Bar */}
-      <div className="bg-white border-b border-slate-200 px-6">
-        <div className="max-w-7xl mx-auto flex items-center gap-6 text-sm font-bold">
+      <div className="bg-white border-b border-slate-200 px-4 sm:px-6 overflow-x-auto">
+        <div className="max-w-7xl mx-auto flex items-center gap-4 sm:gap-6 text-xs sm:text-sm font-bold min-w-max">
           {[
             { id: "dashboard", label: "👤 Student Dashboard" },
             { id: "arena", label: "⚔️ Grandmaster Puzzle Arena" },
@@ -1003,7 +1003,7 @@ export default function StudentPortalPage() {
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id as any)}
-              className={`py-4 border-b-2 transition-all cursor-pointer ${
+              className={`py-3.5 sm:py-4 border-b-2 transition-all cursor-pointer whitespace-nowrap ${
                 activeTab === tab.id
                   ? "border-[#29A3DD] text-[#29A3DD] font-black"
                   : "border-transparent text-slate-500 hover:text-slate-900"
@@ -1016,7 +1016,7 @@ export default function StudentPortalPage() {
       </div>
 
       {/* Main Content Area */}
-      <main className="flex-1 max-w-7xl w-full mx-auto p-6 space-y-8">
+      <main className="flex-1 max-w-7xl w-full mx-auto p-4 sm:p-6 space-y-6 sm:space-y-8">
         {/* 1. DASHBOARD TAB */}
         {activeTab === "dashboard" && (
           <div className="space-y-8">
