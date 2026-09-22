@@ -4,7 +4,6 @@ import React, { useState, useEffect } from "react";
 import {
   Plus,
   Search,
-  Trash2,
   Pencil,
   Phone,
   MessageCircle,
@@ -177,18 +176,6 @@ export default function AdminLeadsPage() {
       }
     } catch (e) {
       alert("Failed to update lead");
-    }
-  };
-
-  const handleDeleteLead = async (id: string) => {
-    if (!confirm("Are you sure you want to delete this enquiry lead?")) return;
-    try {
-      const res = await fetch(`/api/leads?id=${id}`, { method: "DELETE" });
-      if (res.ok) {
-        setLeads((prev) => prev.filter((l) => l.id !== id));
-      }
-    } catch (e) {
-      alert("Failed to delete lead");
     }
   };
 
@@ -551,14 +538,6 @@ export default function AdminLeadsPage() {
                           title="Edit Lead Details"
                         >
                           <Pencil className="w-3.5 h-3.5" />
-                        </button>
-
-                        <button
-                          onClick={() => handleDeleteLead(lead.id)}
-                          className="p-1.5 bg-rose-50 hover:bg-rose-100 text-rose-600 rounded-lg border border-rose-200 transition-colors cursor-pointer"
-                          title="Delete Lead"
-                        >
-                          <Trash2 className="w-3.5 h-3.5" />
                         </button>
                       </div>
                     </td>

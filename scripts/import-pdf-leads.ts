@@ -2,7 +2,20 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
-const leadsToSeed = [
+interface LeadData {
+  name: string;
+  email: string | null;
+  phone: string;
+  age: string | null;
+  level: string;
+  mode: string;
+  status: "NEW";
+  source: string;
+  notes: string;
+  createdAt: Date;
+}
+
+const leadsToImport: LeadData[] = [
   {
     name: "Kamal Saini Kamal Saini",
     email: "kkchessacademy@gmail.com",
@@ -10,7 +23,7 @@ const leadsToSeed = [
     age: "30",
     level: "Advanced",
     mode: "Online",
-    status: "NEW" as const,
+    status: "NEW",
     source: "Imported Sheet",
     notes: "fide-rated",
     createdAt: new Date("2025-09-10T19:40:01"),
@@ -22,7 +35,7 @@ const leadsToSeed = [
     age: "6",
     level: "Beginner",
     mode: "Online",
-    status: "NEW" as const,
+    status: "NEW",
     source: "Imported Sheet",
     notes: "complete-beginner",
     createdAt: new Date("2025-10-23T00:06:31"),
@@ -34,7 +47,7 @@ const leadsToSeed = [
     age: "56",
     level: "Beginner",
     mode: "Online",
-    status: "NEW" as const,
+    status: "NEW",
     source: "Imported Sheet",
     notes: "some-knowledge",
     createdAt: new Date("2025-11-16T11:25:39"),
@@ -46,7 +59,7 @@ const leadsToSeed = [
     age: "4.5",
     level: "Beginner",
     mode: "Online",
-    status: "NEW" as const,
+    status: "NEW",
     source: "Imported Sheet",
     notes: "complete-beginner",
     createdAt: new Date("2025-11-22T14:51:02"),
@@ -58,7 +71,7 @@ const leadsToSeed = [
     age: "10",
     level: "Intermediate",
     mode: "Online",
-    status: "NEW" as const,
+    status: "NEW",
     source: "Imported Sheet",
     notes: "intermediate",
     createdAt: new Date("2025-12-06T10:35:19"),
@@ -70,7 +83,7 @@ const leadsToSeed = [
     age: "12",
     level: "Beginner",
     mode: "Online",
-    status: "NEW" as const,
+    status: "NEW",
     source: "Imported Sheet",
     notes: "complete-beginner",
     createdAt: new Date("2025-12-27T12:16:51"),
@@ -82,7 +95,7 @@ const leadsToSeed = [
     age: "26",
     level: "Beginner",
     mode: "Online",
-    status: "NEW" as const,
+    status: "NEW",
     source: "Imported Sheet",
     notes: "Some Knowledge",
     createdAt: new Date("2026-01-04T07:24:56"),
@@ -94,7 +107,7 @@ const leadsToSeed = [
     age: "8",
     level: "Beginner",
     mode: "Online",
-    status: "NEW" as const,
+    status: "NEW",
     source: "Imported Sheet",
     notes: "some-knowledge",
     createdAt: new Date("2026-01-13T08:56:58"),
@@ -106,7 +119,7 @@ const leadsToSeed = [
     age: "12",
     level: "Beginner",
     mode: "Online",
-    status: "NEW" as const,
+    status: "NEW",
     source: "Imported Sheet",
     notes: "beginner",
     createdAt: new Date("2026-01-16T02:53:43"),
@@ -118,7 +131,7 @@ const leadsToSeed = [
     age: "10",
     level: "Beginner",
     mode: "Online",
-    status: "NEW" as const,
+    status: "NEW",
     source: "Imported Sheet",
     notes: "beginner",
     createdAt: new Date("2026-03-05T19:57:34"),
@@ -130,7 +143,7 @@ const leadsToSeed = [
     age: "18",
     level: "Beginner",
     mode: "Online",
-    status: "NEW" as const,
+    status: "NEW",
     source: "Imported Sheet",
     notes: "beginner",
     createdAt: new Date("2026-03-19T09:56:17"),
@@ -142,7 +155,7 @@ const leadsToSeed = [
     age: "9",
     level: "Beginner",
     mode: "Online",
-    status: "NEW" as const,
+    status: "NEW",
     source: "Imported Sheet",
     notes: "beginner",
     createdAt: new Date("2026-03-22T13:40:35"),
@@ -154,7 +167,7 @@ const leadsToSeed = [
     age: "10",
     level: "Beginner",
     mode: "Online",
-    status: "NEW" as const,
+    status: "NEW",
     source: "Imported Sheet",
     notes: "basic",
     createdAt: new Date("2026-03-23T20:38:31"),
@@ -166,7 +179,7 @@ const leadsToSeed = [
     age: "11",
     level: "Beginner",
     mode: "Online",
-    status: "NEW" as const,
+    status: "NEW",
     source: "Imported Sheet",
     notes: "beginner",
     createdAt: new Date("2026-04-03T10:32:41"),
@@ -178,7 +191,7 @@ const leadsToSeed = [
     age: "8",
     level: "Intermediate",
     mode: "Online",
-    status: "NEW" as const,
+    status: "NEW",
     source: "Imported Sheet",
     notes: "intermediate",
     createdAt: new Date("2026-04-03T10:47:14"),
@@ -190,7 +203,7 @@ const leadsToSeed = [
     age: "32",
     level: "Beginner",
     mode: "Online",
-    status: "NEW" as const,
+    status: "NEW",
     source: "Imported Sheet",
     notes: "beginner Build confidence & discipline",
     createdAt: new Date("2026-04-04T16:38:05"),
@@ -202,7 +215,7 @@ const leadsToSeed = [
     age: "9",
     level: "Beginner",
     mode: "Online",
-    status: "NEW" as const,
+    status: "NEW",
     source: "Imported Sheet",
     notes: "beginner",
     createdAt: new Date("2026-04-05T04:03:11"),
@@ -214,7 +227,7 @@ const leadsToSeed = [
     age: null,
     level: "Beginner",
     mode: "Online",
-    status: "NEW" as const,
+    status: "NEW",
     source: "Imported Sheet",
     notes: "Beginner",
     createdAt: new Date("2026-04-26T10:43:47"),
@@ -226,7 +239,7 @@ const leadsToSeed = [
     age: null,
     level: "Beginner",
     mode: "Online",
-    status: "NEW" as const,
+    status: "NEW",
     source: "Imported Sheet",
     notes: "Beginner",
     createdAt: new Date("2026-06-13T07:42:29"),
@@ -238,7 +251,7 @@ const leadsToSeed = [
     age: null,
     level: "Beginner",
     mode: "Online",
-    status: "NEW" as const,
+    status: "NEW",
     source: "Imported Sheet",
     notes: "beginner",
     createdAt: new Date("2026-06-23T10:22:43"),
@@ -250,7 +263,7 @@ const leadsToSeed = [
     age: null,
     level: "Beginner",
     mode: "Online",
-    status: "NEW" as const,
+    status: "NEW",
     source: "Imported Sheet",
     notes: "beginner",
     createdAt: new Date("2026-07-04T18:13:46"),
@@ -262,7 +275,7 @@ const leadsToSeed = [
     age: null,
     level: "Beginner",
     mode: "Online",
-    status: "NEW" as const,
+    status: "NEW",
     source: "Imported Sheet",
     notes: "beginner",
     createdAt: new Date("2026-07-04T18:16:35"),
@@ -274,7 +287,7 @@ const leadsToSeed = [
     age: null,
     level: "Beginner",
     mode: "Online",
-    status: "NEW" as const,
+    status: "NEW",
     source: "Imported Sheet",
     notes: "beginner",
     createdAt: new Date("2026-07-08T02:42:50"),
@@ -286,7 +299,7 @@ const leadsToSeed = [
     age: "4.5",
     level: "Beginner",
     mode: "Online",
-    status: "NEW" as const,
+    status: "NEW",
     source: "Imported Sheet",
     notes: "Beginner",
     createdAt: new Date("2026-07-27T23:36:15"),
@@ -298,7 +311,7 @@ const leadsToSeed = [
     age: null,
     level: "Intermediate",
     mode: "Online",
-    status: "NEW" as const,
+    status: "NEW",
     source: "Imported Sheet",
     notes: "Intermediate",
     createdAt: new Date("2026-08-30T14:17:26"),
@@ -310,7 +323,7 @@ const leadsToSeed = [
     age: "21",
     level: "Beginner",
     mode: "Online",
-    status: "NEW" as const,
+    status: "NEW",
     source: "Imported Sheet",
     notes: "Beginner",
     createdAt: new Date("2026-09-09T00:42:05"),
@@ -318,10 +331,10 @@ const leadsToSeed = [
 ];
 
 async function main() {
-  console.log(`Starting to seed ${leadsToSeed.length} leads...`);
+  console.log(`Starting to import ${leadsToImport.length} leads...`);
 
-  let createdCount = 0;
-  for (const lead of leadsToSeed) {
+  let count = 0;
+  for (const lead of leadsToImport) {
     if ((prisma as any).lead) {
       await (prisma as any).lead.create({
         data: {
@@ -337,7 +350,7 @@ async function main() {
           createdAt: lead.createdAt,
         },
       });
-      createdCount++;
+      count++;
     } else {
       const id = `lead_${Date.now()}_${Math.random().toString(36).slice(2, 7)}`;
       const insertSql = `
@@ -358,16 +371,16 @@ async function main() {
         );
       `;
       await prisma.$executeRawUnsafe(insertSql);
-      createdCount++;
+      count++;
     }
   }
 
-  console.log(`Successfully seeded ${createdCount} leads into the database!`);
+  console.log(`Successfully imported ${count} leads into the database!`);
 }
 
 main()
   .catch((e) => {
-    console.error("Error seeding leads:", e);
+    console.error("Error importing leads:", e);
     process.exit(1);
   })
   .finally(async () => {
