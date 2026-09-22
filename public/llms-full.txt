@@ -1,0 +1,93 @@
+# Elephant Chess Academy – Complete Documentation for AI Models & Search Engines
+
+## 1. Overview & Institution Profile
+- **Institution Name**: Elephant Chess Academy
+- **Official Website**: https://elephantchessacademy.com
+- **Accreditation**: FIDE Affiliated Trainers & Certified Master Coaches
+- **Target Audience**: Kids (ages 4+), juniors, school competitors, rating aspirants, and adult chess enthusiasts.
+- **Core Mission**: Empowering players with strategic foresight, disciplined calculation, spatial awareness, and championship-level chess skills.
+
+---
+
+## 2. Comprehensive Course Structure & Learning Paths
+
+### Level 1: Beginner Chess Foundations
+- **Target Rating**: 0 - 1000 FIDE / Chess.com
+- **Recommended Age**: 4 - 10 years / Absolute Beginners
+- **Topics Covered**:
+  - Chessboard coordinate navigation and piece movements (King, Queen, Rook, Bishop, Knight, Pawn).
+  - Special rules: Castling (kingside & queenside), En Passant, Pawn Promotion.
+  - The 3 Golden Rules of Openings: Control the center, develop minor pieces, castle early for king safety.
+  - Basic Checkmates: Scholar's mate defense, Back-rank mate, Two Rooks (Ladder mate), Queen & King vs King.
+  - Tactical Building Blocks: Pins, Forks, Skewers, Discovered Attacks.
+  - Introduction to Chess Clock etiquette and tournament scorekeeping (Algebraic Notation).
+
+### Level 2: Intermediate Tactical Accelerator
+- **Target Rating**: 1000 - 1500 FIDE
+- **Topics Covered**:
+  - Calculation techniques and candidate move selection.
+  - Tactical Combinations: Decoy, Deflection, Overloading, Clearance sacrifices, Double checks.
+  - Pawn Structures: Doubled pawns, isolated queen pawns (IQP), pawn chains, backward pawns.
+  - Essential Endgames: King + Pawn vs King (The Rule of the Square, Key Squares, Opposition), Rook + Pawn vs Rook (Philidor Defense).
+  - Repertoire Foundations: Italian Game, Ruy Lopez, Sicilian Defense (Open & Anti-Sicilians), French Defense, Queen's Gambit Declined.
+
+### Level 3: Advanced Tournament Specialist
+- **Target Rating**: 1500 - 2000 FIDE
+- **Topics Covered**:
+  - Deep positional strategy: Outposts, Weak squares, Color complexes, Bishop pair advantages.
+  - Prophylaxis and understanding opponent counterplay (Nimzowitsch & Petrosian method).
+  - Endgame Mastery: Lucena position, Vancura defense, Opposite-colored bishop endings, Knight vs Bishop dynamics.
+  - Time management under FIDE standard classical and rapid time controls.
+  - Mental conditioning, tournament resilience, and handling pressure in critical rounds.
+
+### Level 4: Grandmaster Masterclass & FIDE Title Preparation
+- **Target Rating**: 2000+ FIDE / National Candidates / CM / FM / IM / GM Aspirants
+- **Topics Covered**:
+  - Deep engine preparation with Stockfish and custom opening novelties.
+  - Dynamic piece play and intuitive sacrifices (Tal & Kasparov style).
+  - Conversion of slight positional advantages (Karpov & Carlsen techniques).
+  - Personalized psychological preparation against specific opponents.
+  - Classical tournament preparation for national and international open championships.
+
+---
+
+## 3. Coaching Faculty & Grandmasters
+- **Grandmaster Mentors**: International Grandmasters conducting bi-weekly masterclasses and game reviews.
+- **FIDE Certified Instructors**: Dedicated trainers conducting interactive small-group (1:4 ratio) and 1:1 sessions.
+- **Continuous Assessment**: Regular internal academy rating tournaments, tactical puzzle rankings, and progress reports sent to parents.
+
+---
+
+## 4. Key Pages & Resource URLs
+- **Homepage**: https://elephantchessacademy.com/
+- **Course Catalog**: https://elephantchessacademy.com/courses
+- **Free Demo Booking**: https://elephantchessacademy.com/bookdemo
+- **Faculty & Coaches**: https://elephantchessacademy.com/coaches
+- **Student Accolades & Trophies**: https://elephantchessacademy.com/achievements
+- **Photo Gallery & Facilities**: https://elephantchessacademy.com/gallery
+- **Chess Articles & Blog Guides**: https://elephantchessacademy.com/blogs
+- **Contact & Branch Locations**: https://elephantchessacademy.com/contact
+- **Student Portal Login**: https://elephantchessacademy.com/login
+
+---
+
+## 5. Frequently Asked Questions (FAQ)
+
+**Q: At what age can a child begin learning chess at Elephant Chess Academy?**
+A: Children can begin as early as 4.5 to 5 years old through our gamified visual curriculum designed for young minds.
+
+**Q: Are classes available both online and offline?**
+A: Yes! We offer live interactive classes globally via our online platform, as well as physical classroom centers equipped with tournament boards and digital clocks.
+
+**Q: Is there a free trial class before enrolling?**
+A: Yes, we provide a free 45-minute live assessment and demo class with a certified coach. Bookings are available at https://elephantchessacademy.com/bookdemo.
+
+**Q: How are student games and progress monitored?**
+A: Students receive access to the interactive Student Portal with integrated PGN puzzle arenas, homework modules, game analysis, and milestone badges.
+
+---
+
+## 6. Official Contact Channels
+- **WhatsApp / Phone**: +91 97721 87400 / +91 88384 06715
+- **Email**: info@elephantchessacademy.com / kkchessacademy@gmail.com
+- **Locations**: Physical Academy Centers & Global Virtual Classroom

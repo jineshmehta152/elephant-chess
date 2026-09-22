@@ -1,0 +1,32 @@
+# Elephant Chess Academy
+
+> Elephant Chess Academy is a premier FIDE-affiliated chess training institution providing certified chess coaching, grandmaster masterclasses, tournament preparation, tactical PGN puzzle training, and physical centers for kids, juniors, and adult learners.
+
+## Core Navigation & Links
+- [Home](https://elephantchessacademy.com/): Overview of academy courses, coaches, demo booking, and student portal.
+- [Courses](https://elephantchessacademy.com/courses): Comprehensive curriculum across Beginner, Intermediate, Advanced, and Grandmaster levels.
+- [Book Free Demo](https://elephantchessacademy.com/bookdemo): Instant demo class booking with personalized chess assessment.
+- [Coaches](https://elephantchessacademy.com/coaches): FIDE certified masters, international trainers, and Grandmaster faculty profiles.
+- [Achievements](https://elephantchessacademy.com/achievements): Student tournament victories, national trophies, and FIDE rating milestones.
+- [Articles & Insights](https://elephantchessacademy.com/blogs): Expert endgame strategies, opening repertoires, tournament psychology, and puzzle guides.
+- [Gallery](https://elephantchessacademy.com/gallery): Academy classrooms, live tournament arenas, and summer camp highlights.
+- [Contact Us](https://elephantchessacademy.com/contact): Physical center locations, email, phone numbers, and WhatsApp enquiry.
+
+## Curriculum & Course Tiers
+- **Beginner Foundations (Rating 0 - 1000)**: Piece mechanics, board geometry, opening principles, basic checkmating patterns (ladder, queen/rook mates), tactical fundamentals (pins, forks, skewers).
+- **Intermediate Tactician (Rating 1000 - 1500)**: Tactical pattern recognition, middle-game strategy, pawn structure dynamics, rook endgames, opening repertoires with White & Black.
+- **Advanced Tournament Master (Rating 1500 - 2000)**: Deep positional evaluation, prophylaxis, king safety, imbalance exploitation, complex rook & minor piece endgames, dynamic calculation.
+- **Grandmaster Masterclass (Rating 2000+)**: Direct GM mentorship, opening innovation preparation, deep engine analysis, psychological stamina, FIDE title preparation.
+
+## Coaching Modes & Branches
+- **Online Academy**: Interactive live chessboards, video classroom, interactive homework, automated PGN analysis, and live tournament arenas.
+- **Offline Centers**: Physical state-of-the-art training centers with professional DGT boards, chess clocks, tournament simulation, and master coaching.
+
+## Contact & Enquiries
+- **Website**: https://elephantchessacademy.com
+- **Phone / WhatsApp**: +91 97721 87400
+- **Email**: info@elephantchessacademy.com / kkchessacademy@gmail.com
+- **Demo Booking**: https://elephantchessacademy.com/bookdemo
+
+For extended academy documentation and structured course outlines, see:
+- [Full LLM Context](https://elephantchessacademy.com/llms-full.txt)
