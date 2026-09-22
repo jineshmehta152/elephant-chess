@@ -1,0 +1,185 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Level {
+  BEGINNER
+  INTERMEDIATE
+  ADVANCED
+}
+
+enum AttendanceStatus {
+  PRESENT
+  ABSENT
+  LATE
+}
+
+model Student {
+  id            String       @id @default(cuid())
+  name          String
+  age           Int
+  email         String?      @unique
+  password      String?
+  phone         String?
+  batch         String
+  level         Level        @default(BEGINNER)
+  rating        Int          @default(1200)
+  status        String       @default("Active")
+  allowAllCourses Boolean    @default(false)
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
+  attendances   Attendance[]
+  solvedPuzzles SolvedPuzzle[]
+  puzzleAttempts PuzzleAttempt[]
+  customCourses StudentCourse[]
+}
+
+model Achievement {
+  id          String   @id @default(cuid())
+  title       String
+  category    String   @default("Tournament")
+  description String
+  imageUrl    String
+  year        String
+  studentName String?
+  createdAt   DateTime @default(now())
+}
+
+model GalleryItem {
+  id          String   @id @default(cuid())
+  title       String
+  category    String   @default("Events")
+  imageUrl    String
+  description String?
+  createdAt   DateTime @default(now())
+}
+
+model Puzzle {
+  id            String   @id @default(cuid())
+  title         String
+  pgn           String   @db.Text
+  fen           String?
+  targetFen     String?
+  level         Level    @default(BEGINNER)
+  assignedBatch String   @default("All Batches")
+  solutionHint  String?
+  description   String?  @db.Text
+  data          Json?
+  createdAt     DateTime @default(now())
+  solvedBy      SolvedPuzzle[]
+  folderId      String?
+  folder        PuzzleFolder? @relation(fields: [folderId], references: [id], onDelete: Cascade)
+  puzzleAttempts PuzzleAttempt[]
+}
+
+model Attendance {
+  id        String           @id @default(cuid())
+  date      DateTime         @default(now())
+  status    AttendanceStatus @default(PRESENT)
+  studentId String
+  student   Student          @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  notes     String?
+  createdAt DateTime         @default(now())
+
+  @@unique([studentId, date])
+}
+
+model Batch {
+  id        String   @id @default(cuid())
+  name      String   @unique
+  timing    String?
+  days      String?
+  level     Level    @default(BEGINNER)
+  createdAt DateTime @default(now())
+}
+
+model SolvedPuzzle {
+  id        String   @id @default(cuid())
+  studentId String
+  student   Student  @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  puzzleId  String
+  puzzle    Puzzle   @relation(fields: [puzzleId], references: [id], onDelete: Cascade)
+  points    Int      @default(10)
+  solvedAt  DateTime @default(now())
+
+  @@unique([studentId, puzzleId])
+}
+
+model PuzzleFolder {
+  id        String   @id @default(cuid())
+  name      String
+  order     Int      @default(0)
+  createdAt DateTime @default(now())
+  puzzles   Puzzle[]
+  customStudents StudentCourse[]
+}
+
+model PuzzleAttempt {
+  id        String   @id @default(cuid())
+  studentId String
+  student   Student  @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  puzzleId  String
+  puzzle    Puzzle   @relation(fields: [puzzleId], references: [id], onDelete: Cascade)
+  attempts  Int      @default(1)
+  updatedAt DateTime @updatedAt
+
+  @@unique([studentId, puzzleId])
+}
+
+model Blog {
+  id         String   @id @default(cuid())
+  slug       String   @unique
+  title      String
+  category   String
+  author     String
+  authorRole String
+  date       String
+  readTime   String
+  image      String
+  summary    String   @db.Text
+  content    String   @db.Text
+  createdAt  DateTime @default(now())
+}
+
+model StudentCourse {
+  id        String       @id @default(cuid())
+  studentId String
+  student   Student      @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  folderId  String
+  folder    PuzzleFolder @relation(fields: [folderId], references: [id], onDelete: Cascade)
+  order     Int          @default(0)
+
+  @@unique([studentId, folderId])
+}
+
+enum LeadStatus {
+  NEW
+  CONTACTED
+  DEMO_SCHEDULED
+  CONVERTED
+  LOST
+}
+
+model Lead {
+  id           String      @id @default(cuid())
+  name         String
+  age          String?
+  phone        String
+  email        String?
+  level        String?     @default("Beginner")
+  mode         String?     @default("Online")
+  status       LeadStatus  @default(NEW)
+  source       String?     @default("Website")
+  notes        String?     @db.Text
+  demoDate     DateTime?
+  followUpDate DateTime?
+  createdAt    DateTime    @default(now())
+  updatedAt    DateTime    @updatedAt
+}
+
+
