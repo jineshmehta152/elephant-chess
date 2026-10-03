@@ -66,7 +66,7 @@ const courseDetails: CourseDetailItem[] = [
     weeklyClasses: "2 Classes / Week (60–90 min)",
     practiceSession: "1 Guided Puzzle Arena / Week",
     certificate: "Official Level 1 Foundation Certificate",
-    mode: "Live Online & Physical Batches",
+    mode: "100% Live Interactive Online Batches",
     overview:
       "Designed specifically for absolute beginners and young minds starting their chess journey. Students learn full board geometry, proper movement and value of every piece, fundamental checkmate formulas, and basic opening principles in a fun, engaging, and structured environment.",
     whoFor:
@@ -102,7 +102,7 @@ const courseDetails: CourseDetailItem[] = [
     weeklyClasses: "2 Classes / Week (90 min)",
     practiceSession: "Weekly Academy Arena Tournament + Game Review",
     certificate: "Intermediate Proficiency Certificate",
-    mode: "Live Online & Physical Batches",
+    mode: "100% Live Interactive Online Batches",
     overview:
       "Takes students from basic rule knowledge into active tactical calculation. Focuses heavily on pattern recognition, eliminating blunder habits, discovering multi-move combinations, controlling open files with heavy pieces, and learning fundamental King and Pawn endgames.",
     whoFor:
@@ -138,7 +138,7 @@ const courseDetails: CourseDetailItem[] = [
     weeklyClasses: "2 Classes / Week (90–120 min)",
     practiceSession: "2 Weekly Rated Arenas + Coach PGN Analysis",
     certificate: "Advanced Strategy Excellence Diploma",
-    mode: "Live Online & Physical Batches",
+    mode: "100% Live Interactive Online Batches",
     overview:
       "A competitive track designed for serious junior players aiming to achieve FIDE ratings. Covers structured opening repertoires, positional evaluation, long-term pawn structure advantages, prophylaxis, candidate move discipline, and complex rook endgames.",
     whoFor:
@@ -174,7 +174,7 @@ const courseDetails: CourseDetailItem[] = [
     weeklyClasses: "Custom 1-on-1 Schedule with FIDE Certified Mentors",
     practiceSession: "Daily Curated Puzzles + Video Game Breakdowns",
     certificate: "FIDE Norm Preparation & Elite Endorsement",
-    mode: "Personalized 1-on-1 Online & Offline",
+    mode: "Personalized 1-on-1 Online Masterclass",
     overview:
       "Our premier 1-on-1 mentorship program tailored directly around the student's competitive schedule, target FIDE rating, and individual playing style. Conducted directly by FIDE-certified coaches with customized opponent profiling and deep theoretical preparation.",
     whoFor:

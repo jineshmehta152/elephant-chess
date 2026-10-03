@@ -109,7 +109,7 @@ export default function AboutPage() {
               </p>
               
               <p className="text-slate-600 text-sm font-medium leading-relaxed">
-                From our physical academy hub in Danavai Peta, Rajamahendravaram to our live digital studio connecting students across India and abroad, we nurture students from their first pawn push to FIDE international rating milestones.
+                Through our 100% live interactive digital studio connecting students across India and abroad, we nurture students from their first pawn push to FIDE international rating milestones.
               </p>
             </div>
 
@@ -242,7 +242,7 @@ export default function AboutPage() {
                 </h3>
 
                 <p className="text-slate-900 text-xs sm:text-sm font-bold leading-relaxed">
-                  To establish <strong className="underline decoration-black decoration-2">Rajamahendravaram and India</strong> as a recognized global powerhouse for youth chess excellence, creating state champions, international title-holders, and lifelong critical thinkers.
+                  To establish a recognized global powerhouse for youth chess excellence, creating state champions, international title-holders, and lifelong critical thinkers.
                 </p>
 
                 <ul className="space-y-2.5 pt-4 border-t border-black/20 text-xs font-black text-slate-950 uppercase tracking-wider">
@@ -482,10 +482,10 @@ export default function AboutPage() {
                 badge: "Micro Batches",
               },
               {
-                title: "Online & Physical Centers",
-                desc: "Flexible hybrid options available at our Danavai Peta campus and our interactive live digital video studio.",
+                title: "100% Online Global Studio",
+                desc: "Live interactive digital video studio with PGN analysis, interactive chessboards, and recorded replay archives.",
                 icon: Globe,
-                badge: "Flexible Hybrid",
+                badge: "Global Classrooms",
               },
               {
                 title: "Live Sunday Arenas",

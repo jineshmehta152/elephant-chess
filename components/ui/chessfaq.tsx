@@ -16,9 +16,9 @@ export default function ChessFAQSection() {
       category: "Admissions",
     },
     {
-      question: "Do you offer both Online and Offline coaching batches?",
+      question: "How do your Live Online coaching batches work?",
       answer:
-        "Yes! We offer physical classroom batches with hands-on tournament boards, as well as live interactive online batches with digital puzzles, screen analysis, and recorded replay access.",
+        "Our classes are 100% live and interactive with hands-on digital boards, Grandmaster screen analysis, live puzzle tournaments, 2-way doubt solving, and full recorded replay access in the student portal.",
       category: "Format",
     },
     {

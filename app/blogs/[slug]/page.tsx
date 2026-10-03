@@ -290,7 +290,7 @@ export default async function BlogSlugPage({ params }: { params: { slug: string 
                   <span>📱</span> +91 62812 50967
                 </p>
                 <p className="text-[11px] font-medium text-slate-300 pt-1">
-                  📍 Danavai Peta, Rajamahendravaram, AP 533103
+                  🌐 100% Live Interactive Online Academy (Worldwide)
                 </p>
               </div>
 

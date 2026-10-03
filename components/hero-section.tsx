@@ -88,7 +88,7 @@ export function HeroSection() {
             </div>
             <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-[#0A1128]/85 backdrop-blur-md border border-white/30 text-xs md:text-sm font-extrabold text-white shadow-lg">
               <CheckCircle2 className="w-4 h-4 text-[#FDB813] shrink-0" />
-              <span>Online & Physical Batches</span>
+              <span>100% Live Online Academy</span>
             </div>
           </div>
 

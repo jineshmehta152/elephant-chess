@@ -18,18 +18,18 @@ export const metadata: Metadata = {
     template: "%s | Elephant Chess Academy",
   },
   description:
-    "Join Elephant Chess Academy for FIDE-certified chess coaching, Grandmaster masterclasses, tournament preparation, tactical PGN puzzle training, and physical academy centers for kids and champions.",
+    "Join Elephant Chess Academy for FIDE-certified live online chess coaching, Grandmaster masterclasses, tournament preparation, tactical PGN puzzle training, and global virtual classrooms for kids and champions.",
   keywords: [
     "chess academy",
     "chess classes online",
     "FIDE chess coach",
     "chess coaching for kids",
     "grandmaster chess classes",
-    "chess training center",
+    "online chess academy",
     "chess tournament coaching",
     "learn chess online",
     "chess tactics puzzle arena",
-    "best chess academy India",
+    "best online chess academy",
     "Elephant Chess Academy",
   ],
   authors: [{ name: "Elephant Chess Academy", url: SITE_URL }],
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Elephant Chess Academy – FIDE Certified Master Training",
     description:
-      "FIDE certified chess coaching, Grandmaster masterclasses, tournament preparation, interactive PGN puzzle arenas, and dedicated offline academies.",
+      "FIDE certified chess coaching, Grandmaster masterclasses, tournament preparation, interactive PGN puzzle arenas, and 100% live interactive online classes worldwide.",
     url: SITE_URL,
     siteName: "Elephant Chess Academy",
     images: [
@@ -109,7 +109,7 @@ const jsonLd = {
       "url": SITE_URL,
       "logo": `${SITE_URL}/elephant-logo.png`,
       "description":
-        "FIDE certified chess coaching academy offering beginner to grandmaster training, interactive tactical puzzle platform, and physical learning centers.",
+        "FIDE certified online chess academy offering beginner to grandmaster training, interactive tactical puzzle platform, and live global classrooms.",
       "sameAs": [
         "https://elephantchessacademy.com",
         "https://www.instagram.com/elephantchessacademy",

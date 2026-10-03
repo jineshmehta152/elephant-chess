@@ -109,7 +109,7 @@ export async function POST(req: Request) {
             </div>
 
             <div style="background: #f8fafc; border-top: 1px solid #e2e8f0; padding: 16px; text-align: center; font-size: 12px; color: #94a3b8;">
-              Elephant Chess Academy • Danavai Peta, Rajamahendravaram, AP 533103<br/>
+              Elephant Chess Academy • 100% Live Interactive Online Academy<br/>
               Direct Hotline: +91 98878 21721
             </div>
           </div>

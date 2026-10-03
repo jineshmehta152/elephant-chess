@@ -124,11 +124,11 @@ export function BookDemoProvider({ children }: { children: React.ReactNode }) {
               {/* Contact Details List */}
               <div className="space-y-4 text-xs pt-2 border-t border-white/15">
                 <div className="flex items-start gap-3">
-                  <span className="text-lg">📍</span>
+                  <span className="text-lg">🌐</span>
                   <div>
-                    <p className="font-black text-white">Academy Center</p>
+                    <p className="font-black text-white">Online Academy</p>
                     <p className="text-slate-200 text-[11px] leading-relaxed">
-                      Danavai Peta, Rajamahendravaram, AP 533103
+                      100% Live Interactive Digital Studio (Worldwide)
                     </p>
                   </div>
                 </div>
@@ -302,7 +302,7 @@ export function BookDemoProvider({ children }: { children: React.ReactNode }) {
                     <label className="font-extrabold text-[#0A1128] block mb-1">Preferred Mode *</label>
                     <select name="mode" className="w-full p-3 rounded-xl bg-slate-50 border border-slate-200 focus:outline-none focus:ring-2 focus:ring-[#29A3DD] focus:bg-white text-slate-900 font-semibold">
                       <option>💻 Live Online Interactive Batch</option>
-                      <option>🏛️ Offline Physical Branch Center</option>
+                      <option>🎯 1-on-1 Personalized Master Coaching</option>
                     </select>
                   </div>
                 </div>

@@ -17,6 +17,9 @@ import {
   Send,
   Calendar,
   Award,
+  Globe,
+  Video,
+  Laptop,
 } from "lucide-react";
 
 export default function ContactPage() {
@@ -77,17 +80,17 @@ export default function ContactPage() {
             <div className="rounded-3xl border-[3px] border-black bg-white p-6 shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-0.5 transition-all">
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 rounded-2xl border-2 border-black bg-[#29A3DD] text-white flex items-center justify-center text-xl shrink-0 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                  <MapPin className="w-6 h-6 stroke-[2.5]" />
+                  <Globe className="w-6 h-6 stroke-[2.5]" />
                 </div>
                 <div className="space-y-1">
                   <span className="text-[10px] font-[1000] uppercase tracking-wider text-[#29A3DD] block">
-                    Academy Center
+                    Online Academy
                   </span>
                   <h3 className="font-[1000] text-lg text-slate-950 uppercase tracking-tight">
-                    Main Physical Hub
+                    Global Live Classes
                   </h3>
                   <p className="text-xs font-semibold text-slate-600 leading-relaxed pt-0.5">
-                    Danavai Peta, Rajamahendravaram, Andhra Pradesh — 533103
+                    100% Live Interactive Digital Studio • Students across India, USA, UK, UAE & Worldwide
                   </p>
                 </div>
               </div>
@@ -318,9 +321,9 @@ export default function ContactPage() {
                         Preferred Mode *
                       </label>
                       <select name="mode" className="w-full p-3.5 rounded-xl bg-slate-50 border-2 border-black focus:outline-none focus:bg-white text-slate-900 font-semibold shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                        <option>💻 Live Online Interactive Batches</option>
-                        <option>🏛️ Physical Center (Danavai Peta)</option>
-                        <option>🎯 1-on-1 Personalized Mentorship</option>
+                        <option>💻 Live Online Interactive Batches (Global)</option>
+                        <option>🎯 1-on-1 Personal Master Coaching</option>
+                        <option>🏆 FIDE Tournament Preparation Online</option>
                       </select>
                     </div>
                   </div>
@@ -356,55 +359,69 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* ── Google Maps Integration Section ── */}
+      {/* ── Global Online Academy Virtual Studio Showcase ── */}
       <section className="py-20 bg-white border-y-[3px] border-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 space-y-8">
           
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
             <div className="space-y-2">
               <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-sky-50 border-2 border-black text-[#29A3DD] font-[1000] text-xs uppercase tracking-widest shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]">
-                <MapPin className="w-3.5 h-3.5" />
-                <span>VISIT OUR CAMPUS</span>
+                <Globe className="w-3.5 h-3.5" />
+                <span>100% ONLINE ACADEMY</span>
               </div>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-[1000] text-slate-950 uppercase tracking-tight leading-tight">
-                FIND US ON{" "}
+                OUR GLOBAL{" "}
                 <span className="bg-gradient-to-r from-[#29A3DD] to-[#FDB813] bg-clip-text text-transparent">
-                  GOOGLE MAPS.
+                  VIRTUAL CLASSROOM.
                 </span>
               </h2>
             </div>
             
-            <a
-              href="https://maps.google.com/?q=Danavai+Peta+Rajamahendravaram+AP"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl bg-slate-950 hover:bg-[#29A3DD] text-white text-xs font-[1000] uppercase tracking-wider transition-all border-2 border-black shadow-[4px_4px_0px_0px_rgba(253,184,19,1)] shrink-0 hover:-translate-y-0.5"
+            <button
+              onClick={openModal}
+              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl bg-slate-950 hover:bg-[#29A3DD] text-white text-xs font-[1000] uppercase tracking-wider transition-all border-2 border-black shadow-[4px_4px_0px_0px_rgba(253,184,19,1)] shrink-0 hover:-translate-y-0.5 cursor-pointer"
             >
-              <span>Get GPS Directions</span>
+              <span>Book Free Live Demo</span>
               <ArrowRight className="w-3.5 h-3.5" />
-            </a>
+            </button>
           </div>
 
-          {/* Embedded Google Map Frame */}
-          <div className="relative w-full h-[420px] rounded-[2.5rem] overflow-hidden border-[3px] border-black bg-slate-900 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
-            <iframe
-              title="Elephant Chess Academy Location"
-              src="https://maps.google.com/maps?q=Danavai%20Peta%2C%20Rajamahendravaram%2C%20Andhra%20Pradesh%20533103&t=&z=15&ie=UTF8&iwloc=&output=embed"
-              className="w-full h-full border-0"
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            />
-            
-            {/* Floating Location Pill */}
-            <div className="absolute bottom-5 left-5 bg-white p-4 rounded-2xl border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hidden sm:flex items-center gap-3.5 max-w-sm">
-              <div className="w-10 h-10 rounded-xl bg-[#29A3DD] border border-black text-white flex items-center justify-center text-lg font-bold shrink-0">
-                🐘
+          {/* Virtual Studio Highlights Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
+            <div className="rounded-3xl border-[3px] border-black bg-gradient-to-b from-sky-50 to-white p-7 shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] space-y-3">
+              <div className="w-12 h-12 rounded-2xl bg-[#29A3DD] text-white border-2 border-black flex items-center justify-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                <Laptop className="w-6 h-6" />
               </div>
-              <div>
-                <p className="font-[1000] text-slate-950 text-xs uppercase tracking-tight">Elephant Chess Academy</p>
-                <p className="text-[10px] font-bold text-slate-500">Danavai Peta, Rajamahendravaram, AP 533103</p>
+              <h3 className="font-[1000] text-lg text-slate-950 uppercase tracking-tight">
+                Interactive PGN Boards
+              </h3>
+              <p className="text-xs font-semibold text-slate-600 leading-relaxed">
+                Live 2-way screen sharing, real-time tactical problem solving, arrow annotations, and grandmaster opening databases.
+              </p>
+            </div>
+
+            <div className="rounded-3xl border-[3px] border-black bg-gradient-to-b from-amber-50 to-white p-7 shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] space-y-3">
+              <div className="w-12 h-12 rounded-2xl bg-[#FDB813] text-slate-950 border-2 border-black flex items-center justify-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                <Video className="w-6 h-6" />
               </div>
+              <h3 className="font-[1000] text-lg text-slate-950 uppercase tracking-tight">
+                HD Video & Replays
+              </h3>
+              <p className="text-xs font-semibold text-slate-600 leading-relaxed">
+                Every live class is recorded with HD analysis. Students and parents can rewatch masterclass sessions anytime in their portal.
+              </p>
+            </div>
+
+            <div className="rounded-3xl border-[3px] border-black bg-gradient-to-b from-purple-50 to-white p-7 shadow-[5px_5px_0px_0px_rgba(0,0,0,1)] space-y-3">
+              <div className="w-12 h-12 rounded-2xl bg-purple-600 text-white border-2 border-black flex items-center justify-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                <Globe className="w-6 h-6" />
+              </div>
+              <h3 className="font-[1000] text-lg text-slate-950 uppercase tracking-tight">
+                All Global Time Zones
+              </h3>
+              <p className="text-xs font-semibold text-slate-600 leading-relaxed">
+                Dedicated morning, evening, and weekend batches customized for students across India, North America, Europe, UAE, and Asia.
+              </p>
             </div>
           </div>
 

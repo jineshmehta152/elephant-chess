@@ -452,8 +452,8 @@ const Footer: React.FC = () => {
             </div>
 
             <div className="pt-2 text-[11px] font-medium text-slate-300 leading-snug">
-              <p className="text-slate-400">📍 Physical Center:</p>
-              <p className="font-semibold text-white">Danavai Peta, Rajamahendravaram, AP 533103</p>
+              <p className="text-slate-400">🌐 Academy Mode:</p>
+              <p className="font-semibold text-white">100% Live Interactive Online Academy (Worldwide)</p>
             </div>
           </div>
 

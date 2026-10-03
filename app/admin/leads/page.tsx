@@ -341,9 +341,9 @@ export default function AdminLeadsPage() {
               onChange={(e) => setModeFilter(e.target.value)}
               className="px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-800 focus:outline-none focus:border-[#29A3DD] font-semibold cursor-pointer"
             >
-              <option value="ALL">All Modes (Online & Offline)</option>
-              <option value="Online">Online Batches</option>
-              <option value="Offline">Physical Center (Danavai Peta)</option>
+              <option value="ALL">All Modes</option>
+              <option value="Online">Live Online Interactive</option>
+              <option value="1-on-1 Mentorship">1-on-1 Mentorship</option>
             </select>
           </div>
         </div>
@@ -636,8 +636,8 @@ export default function AdminLeadsPage() {
                     className="w-full p-3 bg-slate-950 border border-slate-800 rounded-xl text-white focus:outline-none focus:border-[#29A3DD] font-semibold"
                   >
                     <option value="Online">Live Online Interactive</option>
-                    <option value="Offline Center">Physical Center (Danavai Peta)</option>
                     <option value="1-on-1 Mentorship">1-on-1 Private Mentorship</option>
+                    <option value="Tournament Prep">Tournament Prep Online</option>
                   </select>
                 </div>
               </div>

@@ -1,16 +1,16 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Contact Us & Locations | Elephant Chess Academy",
+  title: "Contact Us | Elephant Chess Academy – Online Chess Coaching",
   description:
-    "Get in touch with Elephant Chess Academy. Find our academy branches, phone numbers, WhatsApp contact, and email for admissions and inquiries.",
+    "Get in touch with Elephant Chess Academy. Book your free live demo session, contact our coaches on WhatsApp, and connect with our global online academy.",
   alternates: {
     canonical: "https://elephantchessacademy.com/contact",
   },
   openGraph: {
-    title: "Contact Elephant Chess Academy & Find Centers",
+    title: "Contact Elephant Chess Academy – Global Online Coaching",
     description:
-      "Locate our physical training branches or connect directly for admission and demo enquiries.",
+      "Connect with our certified chess coaching faculty for admissions, trial classes, and live virtual batches.",
     url: "https://elephantchessacademy.com/contact",
   },
 };
