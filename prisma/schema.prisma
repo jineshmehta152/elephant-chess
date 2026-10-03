@@ -37,6 +37,24 @@ model Student {
   solvedPuzzles SolvedPuzzle[]
   puzzleAttempts PuzzleAttempt[]
   customCourses StudentCourse[]
+  coachId       String?
+  coach         Coach?       @relation(fields: [coachId], references: [id], onDelete: SetNull)
+}
+
+model Coach {
+  id          String    @id @default(cuid())
+  name        String
+  email       String    @unique
+  password    String
+  phone       String?
+  title       String?   @default("Chess Coach")
+  bio         String?   @db.Text
+  avatarUrl   String?
+  status      String    @default("Active")
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  students    Student[]
+  puzzles     Puzzle[]
 }
 
 model Achievement {
@@ -74,6 +92,8 @@ model Puzzle {
   solvedBy      SolvedPuzzle[]
   folderId      String?
   folder        PuzzleFolder? @relation(fields: [folderId], references: [id], onDelete: Cascade)
+  coachId       String?
+  coach         Coach?        @relation(fields: [coachId], references: [id], onDelete: SetNull)
   puzzleAttempts PuzzleAttempt[]
 }
 

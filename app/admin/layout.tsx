@@ -27,6 +27,7 @@ export default function AdminLayout({
   const navItems = [
     { href: "/admin", label: "📊 Overview", icon: LayoutDashboard },
     { href: "/admin/leads", label: "🎯 Leads & CRM", icon: UserCheck },
+    { href: "/admin/coaches", label: "🎓 Coaches", icon: Users },
     { href: "/admin/students", label: "👥 Students", icon: Users },
     { href: "/admin/puzzles", label: "🧩 Puzzles (PGN)", icon: PuzzleIcon },
     { href: "/admin/attendance", label: "📅 Attendance", icon: CalendarCheck },
@@ -47,6 +48,12 @@ export default function AdminLayout({
         </div>
 
         <div className="flex items-center gap-2 sm:gap-3">
+          <Link
+            href="/coach"
+            className="px-3 sm:px-4 py-1.5 sm:py-2 bg-sky-50 hover:bg-sky-100 text-xs font-bold rounded-xl border border-sky-200 transition-colors text-sky-700"
+          >
+            Coach Portal
+          </Link>
           <Link
             href="/student"
             className="px-3 sm:px-4 py-1.5 sm:py-2 bg-slate-100 hover:bg-slate-200 text-xs font-bold rounded-xl border border-slate-200 transition-colors text-slate-700"

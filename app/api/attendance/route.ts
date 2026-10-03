@@ -7,10 +7,16 @@ export async function GET(req: Request) {
   try {
     const { searchParams } = new URL(req.url);
     const studentId = searchParams.get("studentId");
+    const coachId = searchParams.get("coachId");
     const dateStr = searchParams.get("date");
 
     const where: any = {};
     if (studentId) where.studentId = studentId;
+    if (coachId) {
+      where.student = {
+        coachId: coachId,
+      };
+    }
     if (dateStr) {
       const startOfDay = new Date(`${dateStr}T00:00:00.000Z`);
       const endOfDay = new Date(`${dateStr}T23:59:59.999Z`);
@@ -23,7 +29,13 @@ export async function GET(req: Request) {
     const attendances = await prisma.attendance.findMany({
       where,
       include: {
-        student: true,
+        student: {
+          include: {
+            coach: {
+              select: { id: true, name: true }
+            }
+          }
+        },
       },
       orderBy: { date: "desc" },
     });

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Plus, Search, Trash2, Pencil } from "lucide-react";
+import { Plus, Search, Trash2, Pencil, GraduationCap } from "lucide-react";
 
 interface Student {
   id: string;
@@ -15,6 +15,12 @@ interface Student {
   rating: number;
   status: string;
   allowAllCourses?: boolean;
+  coachId?: string;
+  coach?: {
+    id: string;
+    name: string;
+    email?: string;
+  };
   customCourses?: {
     id: string;
     studentId: string;
@@ -27,10 +33,18 @@ interface Student {
   }[];
 }
 
+interface Coach {
+  id: string;
+  name: string;
+  email: string;
+  title?: string;
+}
+
 export default function AdminStudentsPage() {
   const [students, setStudents] = useState<Student[]>([]);
   const [batches, setBatches] = useState<{ id: string; name: string }[]>([]);
   const [folders, setFolders] = useState<{ id: string; name: string }[]>([]);
+  const [coaches, setCoaches] = useState<Coach[]>([]);
   const [loading, setLoading] = useState(false);
   const [studentSearch, setStudentSearch] = useState("");
 
@@ -45,6 +59,7 @@ export default function AdminStudentsPage() {
     level: "BEGINNER" as "BEGINNER" | "INTERMEDIATE" | "ADVANCED",
     rating: "1200",
     allowAllCourses: false,
+    coachId: "",
   });
 
   const [editingStudent, setEditingStudent] = useState<Student | null>(null);
@@ -56,14 +71,16 @@ export default function AdminStudentsPage() {
   const fetchStudents = async () => {
     setLoading(true);
     try {
-      const [resS, resB, resF] = await Promise.all([
+      const [resS, resB, resF, resC] = await Promise.all([
         fetch("/api/students"),
         fetch("/api/batches"),
         fetch("/api/puzzles/folders"),
+        fetch("/api/coaches"),
       ]);
       if (resS.ok) setStudents(await resS.json());
       if (resB.ok) setBatches(await resB.json());
       if (resF.ok) setFolders(await resF.json());
+      if (resC.ok) setCoaches(await resC.json());
     } catch (e) {
       console.error("Error fetching students:", e);
     } finally {
@@ -93,6 +110,7 @@ export default function AdminStudentsPage() {
           level: "BEGINNER",
           rating: "1200",
           allowAllCourses: false,
+          coachId: "",
         });
       }
     } catch (e) {
@@ -148,7 +166,7 @@ export default function AdminStudentsPage() {
       <div className="flex flex-wrap items-center justify-between gap-4">
         <div>
           <h2 className="text-2xl font-black text-slate-900">Student Directory & Registration</h2>
-          <p className="text-xs text-slate-500">View, edit login credentials, or manage enrolled academy students.</p>
+          <p className="text-xs text-slate-500">View, edit login credentials, or assign coaches to enrolled academy students.</p>
         </div>
         <button
           onClick={() => setShowAddStudent(true)}
@@ -177,6 +195,7 @@ export default function AdminStudentsPage() {
             <thead className="bg-slate-50 text-slate-500 font-black uppercase tracking-wider border-b border-slate-200">
               <tr>
                 <th className="p-4">Name</th>
+                <th className="p-4">Assigned Coach</th>
                 <th className="p-4">Login Email & Password</th>
                 <th className="p-4">Age</th>
                 <th className="p-4">Points</th>
@@ -188,13 +207,13 @@ export default function AdminStudentsPage() {
             <tbody className="divide-y divide-slate-100 text-slate-700">
               {loading ? (
                 <tr>
-                  <td colSpan={7} className="p-6 text-center text-slate-400">
+                  <td colSpan={8} className="p-6 text-center text-slate-400">
                     Loading student directory...
                   </td>
                 </tr>
               ) : filteredStudents.length === 0 ? (
                 <tr>
-                  <td colSpan={7} className="p-6 text-center text-slate-400">
+                  <td colSpan={8} className="p-6 text-center text-slate-400">
                     No students registered yet.
                   </td>
                 </tr>
@@ -208,6 +227,16 @@ export default function AdminStudentsPage() {
                           ? `⭐ ${s.batch}`
                           : `⚙️ Auto League`}
                       </div>
+                    </td>
+                    <td className="p-4">
+                      {s.coach ? (
+                        <span className="px-2.5 py-1 bg-sky-50 text-[#29A3DD] rounded-lg border border-sky-200 font-bold text-[11px] inline-flex items-center gap-1">
+                          <GraduationCap className="w-3 h-3 text-[#29A3DD]" />
+                          {s.coach.name}
+                        </span>
+                      ) : (
+                        <span className="text-slate-400 italic text-[11px]">Unassigned</span>
+                      )}
                     </td>
                     <td className="p-4">
                       <div className="font-mono text-slate-800">{s.email || "-"}</div>
@@ -320,6 +349,21 @@ export default function AdminStudentsPage() {
                   />
                 </div>
               </div>
+              <div>
+                <label className="text-slate-700 font-bold block mb-1">Assign Coach</label>
+                <select
+                  value={newStudent.coachId}
+                  onChange={(e) => setNewStudent({ ...newStudent, coachId: e.target.value })}
+                  className="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 focus:outline-none focus:border-[#29A3DD] focus:bg-white"
+                >
+                  <option value="">-- No Coach Assigned --</option>
+                  {coaches.map((c) => (
+                    <option key={c.id} value={c.id}>
+                      🎓 {c.name} ({c.title || "Coach"})
+                    </option>
+                  ))}
+                </select>
+              </div>
               <div className="flex items-center gap-2 py-1">
                 <input
                   type="checkbox"
@@ -425,6 +469,21 @@ export default function AdminStudentsPage() {
                     className="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 focus:outline-none focus:border-[#29A3DD] focus:bg-white"
                   />
                 </div>
+              </div>
+              <div>
+                <label className="text-slate-700 font-bold block mb-1">Assign Coach</label>
+                <select
+                  value={editingStudent.coachId || ""}
+                  onChange={(e) => setEditingStudent({ ...editingStudent, coachId: e.target.value || undefined })}
+                  className="w-full p-2.5 bg-slate-50 border border-slate-200 rounded-xl text-slate-900 focus:outline-none focus:border-[#29A3DD] focus:bg-white"
+                >
+                  <option value="">-- No Coach Assigned --</option>
+                  {coaches.map((c) => (
+                    <option key={c.id} value={c.id}>
+                      🎓 {c.name} ({c.title || "Coach"})
+                    </option>
+                  ))}
+                </select>
               </div>
               <div className="flex items-center gap-2 py-1">
                 <input

@@ -344,6 +344,11 @@ const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
+                <Link href="/payments" className="hover:text-[#FDB813] text-[#29A3DD] font-bold hover:translate-x-1 inline-block transition-all">
+                  💳 Pay Fees Online
+                </Link>
+              </li>
+              <li>
                 <Link href="/gallery" className="hover:text-white hover:translate-x-1 inline-block transition-all">
                   Gallery
                 </Link>

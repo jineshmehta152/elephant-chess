@@ -12,18 +12,23 @@ export async function GET(req: Request) {
   try {
     const { searchParams } = new URL(req.url);
     const id = searchParams.get("id");
+    const coachId = searchParams.get("coachId");
     const isLeaderboard = searchParams.get("leaderboard") === "true";
 
     if (id) {
       const student = await prisma.student.findUnique({
         where: { id },
         include: {
+          coach: {
+            select: { id: true, name: true, email: true, title: true }
+          },
           attendances: {
             orderBy: { date: "desc" },
           },
           solvedPuzzles: {
             select: { id: true, points: true, puzzleId: true, solvedAt: true },
           },
+          puzzleAttempts: true,
           customCourses: {
             orderBy: { order: "asc" },
             include: {
@@ -42,15 +47,25 @@ export async function GET(req: Request) {
       return NextResponse.json(student);
     }
 
+    const whereClause: any = {};
+    if (coachId) {
+      whereClause.coachId = coachId;
+    }
+
     const students = await prisma.student.findMany({
+      where: whereClause,
       include: {
+        coach: {
+          select: { id: true, name: true, email: true, title: true }
+        },
         attendances: {
           orderBy: { date: "desc" },
-          take: 5,
+          take: 10,
         },
         solvedPuzzles: {
           select: { id: true, points: true, puzzleId: true, solvedAt: true },
         },
+        puzzleAttempts: true,
         customCourses: {
           orderBy: { order: "asc" },
           include: {
@@ -85,7 +100,7 @@ export async function GET(req: Request) {
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-    const { name, age, email, password, phone, batch, level, rating, allowAllCourses } = body;
+    const { name, age, email, password, phone, batch, level, rating, allowAllCourses, coachId } = body;
 
     let student;
     try {
@@ -100,7 +115,13 @@ export async function POST(req: Request) {
           level: level || "BEGINNER",
           rating: parseRating(rating),
           allowAllCourses: allowAllCourses ?? false,
+          coachId: coachId || null,
         },
+        include: {
+          coach: {
+            select: { id: true, name: true, email: true, title: true }
+          }
+        }
       });
     } catch (dbErr: any) {
       console.warn("DB Create error (trying fallback):", dbErr);
@@ -115,6 +136,7 @@ export async function POST(req: Request) {
             level: level || "BEGINNER",
             rating: parseRating(rating),
             allowAllCourses: allowAllCourses ?? false,
+            coachId: coachId || null,
           },
         });
         student = { ...student, password };
@@ -132,6 +154,7 @@ export async function POST(req: Request) {
           rating: parseRating(rating),
           status: "Active",
           allowAllCourses: allowAllCourses ?? false,
+          coachId: coachId || null,
           createdAt: new Date().toISOString(),
         };
       }
@@ -170,7 +193,7 @@ export async function DELETE(req: Request) {
 export async function PUT(req: Request) {
   try {
     const body = await req.json();
-    const { id, name, age, email, password, phone, batch, level, rating, allowAllCourses } = body;
+    const { id, name, age, email, password, phone, batch, level, rating, allowAllCourses, coachId } = body;
 
     if (!id) {
       return NextResponse.json({ error: "Student ID required" }, { status: 400 });
@@ -211,23 +234,33 @@ export async function PUT(req: Request) {
       const desiredRating = parseRating(rating);
       const adjustedRating = Math.max(0, desiredRating - totalPoints);
 
+      const updatePayload: any = {
+        name,
+        age: parseInt(age) || 10,
+        email: email || null,
+        password: password ? password : (currentStudent?.password || null),
+        phone: phone || null,
+        batch: batch || "Beginner Morning",
+        level: level || "BEGINNER",
+        rating: adjustedRating,
+        allowAllCourses: allowAllCourses ?? false,
+      };
+
+      if (coachId !== undefined) {
+        updatePayload.coachId = coachId || null;
+      }
+
       updated = await (prisma.student.update as any)({
         where: { id },
-        data: {
-          name,
-          age: parseInt(age) || 10,
-          email: email || null,
-          password: password ? password : (currentStudent?.password || null),
-          phone: phone || null,
-          batch: batch || "Beginner Morning",
-          level: level || "BEGINNER",
-          rating: adjustedRating,
-          allowAllCourses: allowAllCourses ?? false,
-        },
+        data: updatePayload,
         include: {
+          coach: {
+            select: { id: true, name: true, email: true, title: true }
+          },
           solvedPuzzles: {
             select: { id: true, points: true, puzzleId: true, solvedAt: true },
           },
+          puzzleAttempts: true,
           customCourses: {
             orderBy: { order: "asc" },
             include: {
@@ -250,6 +283,7 @@ export async function PUT(req: Request) {
         rating: parseRating(rating),
         status: "Active",
         allowAllCourses: allowAllCourses ?? false,
+        coachId: coachId || null,
         customCourses: body.customCourses || []
       };
     }

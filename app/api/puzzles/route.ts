@@ -7,9 +7,22 @@ export async function GET(req: Request) {
   try {
     const { searchParams } = new URL(req.url);
     const folderId = searchParams.get("folderId");
+    const coachId = searchParams.get("coachId");
+
+    const where: any = {};
+    if (folderId) where.folderId = folderId;
+    if (coachId) where.coachId = coachId;
 
     const puzzles = await prisma.puzzle.findMany({
-      where: folderId ? { folderId } : {},
+      where,
+      include: {
+        coach: {
+          select: { id: true, name: true, email: true }
+        },
+        folder: {
+          select: { id: true, name: true }
+        }
+      },
       orderBy: { createdAt: "asc" },
     });
     return NextResponse.json(puzzles);
@@ -26,7 +39,7 @@ export async function POST(req: Request) {
       // Handle batch import of multiple puzzles
       const createdPuzzles = [];
       for (const item of body) {
-        const { title, pgn, fen, targetFen, level, assignedBatch, solutionHint, description, data, folderId } = item;
+        const { title, pgn, fen, targetFen, level, assignedBatch, solutionHint, description, data, folderId, coachId } = item;
         const puzzle = await prisma.puzzle.create({
           data: {
             title: title || `Tactical Puzzle (${level || "BEGINNER"})`,
@@ -39,14 +52,20 @@ export async function POST(req: Request) {
             description: description || null,
             data: data || null,
             folderId: folderId || null,
+            coachId: coachId || null,
           },
+          include: {
+            coach: {
+              select: { id: true, name: true }
+            }
+          }
         });
         createdPuzzles.push(puzzle);
       }
       return NextResponse.json(createdPuzzles, { status: 201 });
     }
 
-    const { title, pgn, fen, targetFen, level, assignedBatch, solutionHint, description, data, folderId } = body;
+    const { title, pgn, fen, targetFen, level, assignedBatch, solutionHint, description, data, folderId, coachId } = body;
 
     if (!pgn && !title) {
       return NextResponse.json({ error: "Title or PGN required" }, { status: 400 });
@@ -54,7 +73,7 @@ export async function POST(req: Request) {
 
     const puzzle = await prisma.puzzle.create({
       data: {
-        title: title || `Tactical Puzzle (${level})`,
+        title: title || `Tactical Puzzle (${level || "BEGINNER"})`,
         pgn: pgn || "",
         fen: fen || null,
         targetFen: targetFen || null,
@@ -64,7 +83,13 @@ export async function POST(req: Request) {
         description: description || null,
         data: data || null,
         folderId: folderId || null,
+        coachId: coachId || null,
       },
+      include: {
+        coach: {
+          select: { id: true, name: true }
+        }
+      }
     });
 
     return NextResponse.json(puzzle, { status: 201 });
@@ -76,7 +101,7 @@ export async function POST(req: Request) {
 export async function PUT(req: Request) {
   try {
     const body = await req.json();
-    const { id, title, pgn, fen, targetFen, level, assignedBatch, solutionHint, description, data, folderId } = body;
+    const { id, title, pgn, fen, targetFen, level, assignedBatch, solutionHint, description, data, folderId, coachId } = body;
 
     if (!id) {
       return NextResponse.json({ error: "Puzzle ID required" }, { status: 400 });
@@ -85,7 +110,7 @@ export async function PUT(req: Request) {
     const puzzle = await prisma.puzzle.update({
       where: { id },
       data: {
-        title: title || `Tactical Puzzle (${level})`,
+        title: title || `Tactical Puzzle (${level || "BEGINNER"})`,
         pgn: pgn || "",
         fen: fen || null,
         targetFen: targetFen || null,
@@ -95,7 +120,13 @@ export async function PUT(req: Request) {
         description: description || null,
         data: data || null,
         folderId: folderId || null,
+        coachId: coachId !== undefined ? coachId : undefined,
       },
+      include: {
+        coach: {
+          select: { id: true, name: true }
+        }
+      }
     });
 
     return NextResponse.json(puzzle);
